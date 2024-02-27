@@ -6,7 +6,7 @@ import AddTaskModal from "../components/tasks/AddTaskModal";
 import { useSelector } from "react-redux";
 
 const Tasks = () => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { task } = useSelector((state) => state.taskSlice);
 
   const pendingTask = task?.filter((i) => i.status === "pending");
