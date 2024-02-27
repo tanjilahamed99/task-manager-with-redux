@@ -31,9 +31,13 @@ const taskSlice = createSlice({
         });
       }
     },
+    updateTask: (state, { payload }) => {
+      const target = state.task.find((item) => item.id === payload.id);
+      target.status = payload.status;
+    },
   },
 });
 
-export const { addTask } = taskSlice.actions;
+export const { addTask, updateTask } = taskSlice.actions;
 
 export default taskSlice.reducer;
