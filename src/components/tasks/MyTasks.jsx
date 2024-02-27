@@ -4,21 +4,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTask } from "../../redux/features/task/taskSlice";
+import { useState } from "react";
+import TaskDetails from "./TaskDetails";
 
 const MyTasks = () => {
   const { task } = useSelector((state) => state.taskSlice);
   const dispatch = useDispatch();
-
-  // const task = {
-  //   id: 1,
-  //   status: 'pending',
-  //   title: 'Remove Button',
-  //   description:
-  //     'We need a remove button in our task card. Meke the button red and use Heroicon for tashbin icon.',
-  //   date: '2023-08-28',
-  //   assignedTo: 'Mir Hussain',
-  //   priority: 'high',
-  // };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
@@ -31,9 +23,15 @@ const MyTasks = () => {
           >
             <h1>{item.title}</h1>
             <div className="flex gap-3">
-              <button className="grid place-content-center" title="Details">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="grid place-content-center"
+                title="Details"
+              >
                 <DocumentMagnifyingGlassIcon className="w-5 h-5 text-primary" />
               </button>
+              <TaskDetails isOpen={isOpen} setIsOpen={setIsOpen} />
+
               <button
                 onClick={() =>
                   dispatch(updateTask({ id: item.id, status: "complete" }))
