@@ -1,8 +1,6 @@
 import MyModal from "./modal";
 
-const TaskDetails = ({ isOpen, setIsOpen }) => {
-
-
+const TaskDetails = ({ isOpen, setIsOpen, task }) => {
   return (
     <div>
       <MyModal
@@ -11,19 +9,12 @@ const TaskDetails = ({ isOpen, setIsOpen }) => {
         title={"Tanjil Ahamed"}
         key={"hello"}
       >
-        <form className="my-3">
-          {/* Title */}
+        <div className="space-y-2">
           <div className="flex flex-col gap-2">
             <label className="font0-semibold" htmlFor="">
               Title
             </label>
-            <input
-              required
-              
-              type="text"
-              placeholder="Type here"
-              className="input input-bordered w-full"
-            />
+            <h2>{task.title}</h2>
           </div>
 
           {/* description */}
@@ -31,12 +22,7 @@ const TaskDetails = ({ isOpen, setIsOpen }) => {
             <label className="font0-semibold" htmlFor="">
               Description
             </label>
-            <textarea
-              required
-              
-              className="textarea textarea-bordered"
-              placeholder="desc"
-            ></textarea>
+            <h2>{task.desc}</h2>
           </div>
 
           {/* date */}
@@ -44,13 +30,7 @@ const TaskDetails = ({ isOpen, setIsOpen }) => {
             <label className="font0-semibold" htmlFor="">
               Date
             </label>
-            <input
-              required
-              
-              type="date"
-              placeholder="Type here"
-              className="input input-bordered w-full"
-            />
+            <h2>{task.date}</h2>
           </div>
 
           {/* assin to */}
@@ -58,16 +38,7 @@ const TaskDetails = ({ isOpen, setIsOpen }) => {
             <label className="font0-semibold" htmlFor="">
               Assain-to
             </label>
-            <select
-              
-              className="select select-bordered w-full max-w-xs"
-            >
-              <option selected>Goku</option>
-              <option>Tozii</option>
-              <option>naruto</option>
-              <option>Captain levi</option>
-              <option>Gojo sensai</option>
-            </select>
+            <h2>{task.assin}</h2>
           </div>
 
           {/* priority */}
@@ -75,15 +46,18 @@ const TaskDetails = ({ isOpen, setIsOpen }) => {
             <label className="font0-semibold" htmlFor="">
               Priority
             </label>
-           <h2></h2>
+            <h2>{task.priority}</h2>
           </div>
 
           <div className="flex gap-2 items-center mt-4 justify-end">
-            <button className="btn btn-primary" type="submit">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="btn btn-primary"
+            >
               Close
             </button>
           </div>
-        </form>
+        </div>
       </MyModal>
     </div>
   );

@@ -12,6 +12,8 @@ const MyTasks = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
+
+
   return (
     <div>
       <h1 className="text-xl my-3">My Tasks</h1>
@@ -30,7 +32,7 @@ const MyTasks = () => {
               >
                 <DocumentMagnifyingGlassIcon className="w-5 h-5 text-primary" />
               </button>
-              <TaskDetails isOpen={isOpen} setIsOpen={setIsOpen} />
+              <TaskDetails task={item} isOpen={isOpen} setIsOpen={setIsOpen} />
 
               <button
                 onClick={() =>
