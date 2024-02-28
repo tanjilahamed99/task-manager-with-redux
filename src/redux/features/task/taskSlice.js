@@ -9,10 +9,11 @@ const initialState = {
       description:
         "We need a remove button in our task card. Meke the button red and use Heroicon for tashbin icon.",
       date: "2023-08-28",
-      assignedTo: "Mir Hussain",
+      assignedTo: "Goku",
       priority: "high",
     },
   ],
+  userTask: [],
 };
 
 const taskSlice = createSlice({
@@ -38,9 +39,14 @@ const taskSlice = createSlice({
     deleteTask: (state, { payload }) => {
       state.task = state.task.filter((item) => item.id !== payload);
     },
+
+    specifyUser: (state, { payload }) => {
+      state.userTask = state.task.filter((item) => item.assignedTo === payload);
+    },
   },
 });
 
-export const { addTask, updateTask,deleteTask } = taskSlice.actions;
+export const { addTask, updateTask, deleteTask, specifyUser } =
+  taskSlice.actions;
 
 export default taskSlice.reducer;

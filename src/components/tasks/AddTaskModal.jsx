@@ -71,7 +71,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
               Assain-to
             </label>
             <select
-              {...register("assin")}
+              {...register("assignedTo")}
               className="select select-bordered w-full max-w-xs"
             >
               <option selected>Goku</option>
