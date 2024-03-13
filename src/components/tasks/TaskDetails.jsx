@@ -1,6 +1,9 @@
 import MyModal from "./modal";
 
 const TaskDetails = ({ isOpen, setIsOpen, task }) => {
+
+  console.log(task)
+
   return (
     <div>
       <MyModal

@@ -6,7 +6,7 @@ const initialState = {
       id: 1,
       status: "pending",
       title: "Remove Button",
-      description:
+      desc:
         "We need a remove button in our task card. Meke the button red and use Heroicon for tashbin icon.",
       date: "2023-08-28",
       assignedTo: "Goku",
